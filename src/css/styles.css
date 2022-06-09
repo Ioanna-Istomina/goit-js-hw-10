@@ -18,3 +18,22 @@ body {
   max-width: 320px;
   margin-bottom: 16px;
 }
+
+li {
+  list-style: none;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.list_span {
+  font-weight: bold;
+}
+
+.img {
+  margin-right: 10px;
+}
