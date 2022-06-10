@@ -26,16 +26,10 @@ function inputValue() {
         return;
       }
       if (countries.length > 2 && countries.length < 10) {
-        const markup = countries.map(country => countryList(country)).join('');
-        clearingInput();
-        return list.insertAdjacentHTML('beforeend', markup);
+        createMarkup(list, countryList, countries);
       }
       if (countries.length === 1) {
-        const markup = countries
-          .map(country => countryInformation(country))
-          .join('');
-        clearingInput();
-        return country.insertAdjacentHTML('beforeend', markup);
+        createMarkup(country, countryInformation, countries);
       }
     })
     .catch(() => {
@@ -49,3 +43,17 @@ function clearingInput() {
   list.innerHTML = '';
   country.innerHTML = '';
 }
+
+function createMarkup(el, func, arr) {
+  const markup = arr.map(country => func(country)).join('');
+  clearingInput();
+  return el.insertAdjacentHTML('beforeend', markup);
+}
+
+// const markup = countries.map(country => countryList(country)).join('');
+// clearingInput();
+// return list.insertAdjacentHTML('beforeend', markup);
+
+// const markup = countries.map(country => countryInformation(country)).join('');
+// clearingInput();
+// return country.insertAdjacentHTML('beforeend', markup);
